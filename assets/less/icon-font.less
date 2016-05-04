@@ -1,0 +1,106 @@
+@import (reference) "variables.less";
+@import (reference) "themes/themeify.less";
+
+.icon {
+  font-size: @icon-size;
+  line-height: @icon-size;
+  vertical-align: middle;
+
+  .themeify({
+    color: @theme-nav-icon-color;
+  });
+
+  &.blue {
+    color: @blue;
+  }
+
+  &.orangered {
+    color: @orangered;
+  }
+
+  &.darkgrey {
+    color: @dark-grey;
+  }
+
+  &.lime {
+    color: @lime;
+  }
+
+  &.white {
+    color: white;
+  }
+
+  &.nsfw {
+    color: @nsfw-salmon;
+  }
+
+  &.gold {
+    color: @gold;
+  }
+
+  &.warning-yellow {
+    color: @warning-yellow;
+  }
+
+  &.mint {
+    color: @mint;
+  }
+
+  &.mango {
+    color: @mango;
+  }
+
+  &.black {
+    color: @black;
+  }
+
+  &:before {
+    vertical-align: inherit;
+  }
+}
+
+button, a {
+  &:hover {
+    .icon-foint {
+      .themeify({
+        color: lighten(@theme-nav-icon-color, 5%);
+      });
+
+      &.blue {
+        color: darken(@blue, 5%);
+      }
+
+      &.orangered {
+        color: darken(@orangered, 2%);
+      }
+
+      &.lime {
+        color: darken(@lime, 10%);
+      }
+
+      &.nsfw {
+        color: darken(@nsfw-salmon, 2%);
+      }
+
+      &.gold {
+        color: darken(@gold, 3%);
+      }
+
+      &.warning-yellow {
+        color: darken(@warning-yellow, 6%);
+      }
+
+      &.mint {
+        color: darken(@mint, 5%);
+      }
+
+      &.mango {
+        color: darken(@mango, 5%);
+      }
+
+      &.black {
+        color: lighten(@black, 2%);
+      }
+    }
+  }
+}
