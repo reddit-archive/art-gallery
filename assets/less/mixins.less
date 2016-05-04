@@ -1,4 +1,13 @@
-@import "../../lib/snooboots/less/mixins/vendor-prefixes.less";
+.clearfix() {
+  &:before,
+  &:after {
+    content: " "; // 1
+    display: table; // 2
+  }
+  &:after {
+    clear: both;
+  }
+}
 
 .shadow {
   box-shadow: 0 0 5px 0 rgba(0,0,0,0.2);
@@ -6,10 +15,6 @@
 
 .bottomShadow {
   box-shadow: 0 5px 5px -5px rgba(0,0,0,0.05);
-}
-
-.tween {
-  .transition(0.2s);
 }
 
 .transform(@output) {
