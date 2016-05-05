@@ -1,0 +1,302 @@
+@import (reference) '../themes/themeify';
+@import (reference) '../variables.less';
+
+html {
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  .themeify({
+    &, .icon-inline {
+      color: @theme-link-text-color;
+    }
+
+    &:active {
+      &, .icon-inline {
+        color: lighten(@theme-link-text-color, 10%);
+      }
+    }
+
+    &:visited {
+      &, .icon-inline {
+        color: lighten(@theme-link-text-color, 20%);
+      }
+    }
+
+  });
+}
+
+a.voted.text-upvote:hover,
+a.voted.text-upvote:focus,
+button.upvoted:hover .icon-upvote-circled,
+.text-upvote {
+  color: @orangered;
+}
+
+a.voted.text-downvote:hover,
+a.voted.text-downvote:focus,
+button.downvoted:hover .icon-downvote-circled,
+.text-downvote {
+  color: @periwinkle;
+}
+
+.label.label-large {
+  font-size: 100%;
+}
+
+.label a:hover {
+  text-decoration: none;
+}
+
+.text-admin {
+  color: @orangered;
+
+  &:after {
+    content: ' [A]';
+  }
+}
+
+.text-moderator {
+  color: @lime;
+
+  &:after {
+    content: ' [M]';
+  }
+}
+
+.linkbar {
+  display: inline-block;
+  margin: @half-grid-size 0 0 0;
+  padding: 0;
+
+  > li {
+    padding: 0;
+    display: inline-block;
+    margin-right: .5em;
+    vertical-align: bottom;
+
+    &:nth-child(n+2)::before {
+      content: '·';
+      padding-right: .5em;
+    }
+  }
+}
+
+.linkbar-single-line {
+  height: 1.5em;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+
+  &:after {
+   content: '';
+   position: absolute;
+   height: 2em;
+   z-index: 1;
+   bottom: 0;
+   right: 0;
+   width: 3em;
+
+   background: linear-gradient(to right,
+     rgba(255, 255, 255, 0),
+     rgba(255, 255, 255, 1));
+ }
+
+  > .linkbar {
+    width: 1000%;
+  }
+}
+
+.linkbar > li.linkbar-item-no-seperator::before {
+  content: '';
+  padding-right: 0;
+}
+
+.linkbar-compact {
+  vertical-align: middle;
+  margin: 0;
+
+  li:before {
+    display: none;
+  }
+
+  & > li:nth-child(n+2)::before {
+    content: '';
+    padding-right: 0;
+  }
+}
+
+.linkbar-spread {
+  width: 100%;
+  text-align: center;
+  padding: 0;
+
+  > li {
+    float: left;
+  }
+
+  &.linkbar-spread-5 {
+    > li {
+      width: 20%;
+    }
+    > .linkbar-spread-li-double {
+      width: 40%;
+    }
+  }
+
+}
+
+.text-inverted {
+  color: @white;
+}
+
+.text-muted a,
+.text-muted a:visited,
+.text-muted a:hover,
+{
+  &:extend(.text-muted);
+}
+
+.text-muted a:active {
+  color: @grey-text;
+}
+
+.text-link,
+.text-muted .text-link {
+  color: @alien-blue-text;
+}
+
+.logo-reddit {
+  background: url('/img/snoo-32.png') center right no-repeat;
+  width: 32px;
+  height: 32px;
+  display: inline-block;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+
+  &.logo-small {
+    width: 16px;
+    height: 16px;
+    background-size: 16px;
+  }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (-moz-min-device-pixel-ratio: 2),
+  only screen and (-o-min-device-pixel-ratio: 2/1),
+  only screen and (min-device-pixel-ratio: 2) {
+
+  .logo-reddit {
+    background: url('/img/snoo-64.png') center right no-repeat;
+    background-size: 32px;
+
+    &.logo-small {
+      background: url('/img/snoo-32.png') center right no-repeat;
+      background-size: 16px;
+    }
+  }
+}
+
+blockquote, table{
+  font-size: inherit;
+}
+
+blockquote {
+  margin: .5rem 0 1rem .5rem;
+  padding: .5rem 1rem;
+
+  .themeify({
+    border-left: 5px solid @theme-line-color;
+  });
+}
+
+pre {
+  .themeify({
+    border: @theme-alt-border;
+    color: @theme-body-text-color;
+  });
+}
+
+
+code, pre, pre code {
+  .themeify({
+    background-color: darken(@theme-comment-body-color, 3%);
+  });
+}
+
+code {
+  .themeify(
+  @inDayMode: {
+    background-color: lighten(@red, 40%);
+    color: @red;
+  };
+  @inNightMode: {
+    color: lighten(@red, 5%);
+  });
+}
+
+p {
+  word-wrap: break-word;
+  word-break: keep-all;
+}
+
+.text-small {
+  font-size: 12px;
+
+  [class*=" icon-"] {
+    line-height: 13px;
+  }
+}
+
+.text-super-large {
+  font-size: 128px;
+}
+
+.text-mirror {
+  transform: scale(-1, 1);
+}
+
+.encircle-icon {
+  padding: 3px;
+  color: @white;
+}
+
+dd {
+  margin-bottom: 1em;
+}
+
+.title {
+  color: @alien-blue-text;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+@media screen and (min-width: 0px) {
+  .jumbotron {
+    padding: 1em;
+    margin-bottom: 0;
+
+    h1 {
+      font-size: 18px;
+    }
+
+    p {
+      font-size: 13px;
+    }
+  }
+}
+
+.sponsored-label {
+  color: lighten(@alien-blue-text, 20%);
+  text-transform: uppercase;
+}
+
+.blue {
+  color: @blue;
+}
+
+.red {
+  color: @red;
+}
