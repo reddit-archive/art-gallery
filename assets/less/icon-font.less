@@ -116,3 +116,36 @@ button, a {
 .icon-large {
   font-size: 23px;
 }
+
+.icon-bar-chart.orangered-circled-xl {
+  // custom for use in CommunityOverlayMenu
+  vertical-align: middle;
+  position: relative;
+  top: -2px;
+
+  line-height: 39px;
+  padding-left: 1px;
+  font-size: 21px;
+
+  background-color:@orangered;
+  color: white !important;
+  width: 38px;
+  height: 38px;
+  border-radius: 19px;
+}
+
+.icon-snoo-circled.orangered,
+.icon-gold.gold, .icon-circled-gold.gold {
+  // hacks for nightmode.
+  // makes the fill color white regardless of the background color;
+  // has to be a fancy pixel image because if you use background-color: white
+  // the white is antialiazed weird around the icon font shape and looks like a blurry pixelated border
+  // using a dataurl lets you size the background and center it so that doesn't happen
+  &:before {
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIW2P8////fwAKAAP+j4hsjgAAAABJRU5ErkJggg==');
+    background-size: 0.7em 0.7em;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 1em;
+  }
+}
