@@ -10,6 +10,10 @@
     color: @theme-nav-icon-color;
   });
 
+  &.neutral {
+    color: @neutral;
+  }
+
   &.blue {
     color: @blue;
   }
@@ -61,10 +65,14 @@
 
 button, a {
   &:hover {
-    .icon-foint {
+    &.icon {
       .themeify({
         color: lighten(@theme-nav-icon-color, 5%);
       });
+
+      &.neutral {
+        color: darken(@neutral, 5%);
+      }
 
       &.blue {
         color: darken(@blue, 5%);
